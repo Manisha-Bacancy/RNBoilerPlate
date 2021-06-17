@@ -1,7 +1,16 @@
 {
   "name": "RNBoilerPlate",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "homepage": "https://github.com/Manisha-Bacancy/RNBoilerPlate.git",
+  "bugs": {
+    "url": "https://github.com/Manisha-Bacancy/RNBoilerPlate/issues"
+  },
+  "description": "React Native bolierplat",
+  "keywords": [
+    "React Native",
+    "bolierplat"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
