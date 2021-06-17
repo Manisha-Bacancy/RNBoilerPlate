@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../config/Colors';
+import {smartScale} from '../../config/Metrics';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,12 +9,14 @@ const styles = StyleSheet.create({
   },
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.green,
   },
   safeAreaBottomeContainer: {
     flex: 0,
-    backgroundColor: colors.green,
+    backgroundColor: colors.white,
   },
+  indicatorContainer: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  postListContainer: {flex: 1, margin: smartScale(10)},
 });
 
 export default styles;

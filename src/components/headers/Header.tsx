@@ -4,6 +4,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../config/Colors';
 import styles from './style';
 
+interface Props {
+  navigation: any;
+  title: string;
+}
+
 const Headers: React.FC<Props> = props => {
   const {title, navigation} = props;
 

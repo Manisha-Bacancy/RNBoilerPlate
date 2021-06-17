@@ -68,30 +68,28 @@ const DrawerMenu: React.FC<Props> = props => {
     }
   };
   return (
-    <Fragment>
-      <SafeAreaView style={styles.safeAreaContainer} />
-      <SafeAreaView style={styles.safeAreaBottomeContainer}>
-        <View style={styles.container}>
-          {drawerItemList.map((item, index) => {
-            const {title, type, route} = item;
-            return (
-              <View key={index}>
-                <TouchableOpacity
-                  style={{
-                    height: smartScale(35),
-                    justifyContent: 'center',
-                    marginHorizontal: smartScale(10),
-                  }}
-                  onPress={() => onItemSelection(item)}>
-                  <Text>{title}</Text>
-                </TouchableOpacity>
-                <View style={{height: 1, backgroundColor: colors.grey}} />
-              </View>
-            );
-          })}
-        </View>
-      </SafeAreaView>
-    </Fragment>
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <View style={styles.container}>
+        {drawerItemList.map((item, index) => {
+          const {title, type, route} = item;
+          return (
+            <View key={index}>
+              <TouchableOpacity
+                style={{
+                  height: smartScale(35),
+                  justifyContent: 'center',
+                  marginHorizontal: smartScale(10),
+                }}
+                onPress={() => onItemSelection(item)}>
+                <Text>{title}</Text>
+              </TouchableOpacity>
+              <View style={{height: 1, backgroundColor: colors.grey}} />
+            </View>
+          );
+        })}
+      </View>
+      {/*   <SafeAreaView style={styles.safeAreaBottomeContainer} /> */}
+    </SafeAreaView>
   );
 };
 

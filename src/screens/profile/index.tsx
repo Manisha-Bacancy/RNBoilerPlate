@@ -8,21 +8,18 @@ interface Props {
 }
 const Profile: React.FC<Props> = props => {
   return (
-    <Fragment>
-      <SafeAreaView style={styles.safeAreaBottomeContainer} />
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <View style={styles.container}>
-          <Headers
-            title={I18n.t('profile.title')}
-            navigation={props.navigation}
-          />
-          <View
-            style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
-            <Text>{'This is Profile screen!'}</Text>
-          </View>
+    <SafeAreaView style={styles.safeAreaContainer}>
+      <View style={styles.container}>
+        <Headers
+          title={I18n.t('profile.title')}
+          navigation={props.navigation}
+        />
+        <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+          <Text>{'This is Profile screen!'}</Text>
         </View>
-      </SafeAreaView>
-    </Fragment>
+      </View>
+      <SafeAreaView style={styles.safeAreaBottomeContainer} />
+    </SafeAreaView>
   );
 };
 

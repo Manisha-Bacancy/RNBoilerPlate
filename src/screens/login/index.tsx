@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import NavigationService from '../../navigation/NavigationService';
+import {smartScale} from '../../config/Metrics';
 import {setIsLogin} from '../../services/AsyncStorageNRetrive';
 import styles from './style';
 
@@ -10,10 +10,6 @@ interface Props {
 const Login: React.FC<Props> = props => {
   const goHome = () => {
     setIsLogin(true);
-
-    // props.navigation.reset('SignedInStack', {
-    //   screen: 'Home',
-    // });
     props.navigation.reset({
       routes: [{name: 'SignedInStack'}],
     });
@@ -21,13 +17,22 @@ const Login: React.FC<Props> = props => {
   const goForgotPassword = () => {
     props.navigation.navigate('ForgotPassword');
   };
+  const goSignup = () => {
+    props.navigation.navigate('Signup');
+  };
   return (
     <View style={styles.container}>
       <Text>{'This is login screen!'}</Text>
-      <TouchableOpacity onPress={goHome}>
+      <TouchableOpacity style={{marginTop: smartScale(20)}} onPress={goHome}>
         <Text>{'Login'}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={goForgotPassword}>
+
+      <TouchableOpacity style={{marginTop: smartScale(20)}} onPress={goSignup}>
+        <Text>{'Signup'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{marginTop: smartScale(20)}}
+        onPress={goForgotPassword}>
         <Text>{'Forgot Password'}</Text>
       </TouchableOpacity>
     </View>

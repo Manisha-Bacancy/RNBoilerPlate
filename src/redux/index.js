@@ -2,13 +2,14 @@ import {combineReducers} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
 import ReduxPersist from '../config/ReduxPersist';
 import {reducer as formReducer} from 'redux-form';
+import {reducer as PostsReducer} from './reducersAndActions/PostsRedux';
 import configureStore from './store/CreateStore';
 import rootSaga from './sagas';
 
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   form: formReducer,
-  posts: require('./reducersAndActions/PostsRedux').reducer,
+  posts: PostsReducer,
 });
 
 export default () => {

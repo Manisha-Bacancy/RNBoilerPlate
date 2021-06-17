@@ -7,11 +7,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   safeAreaContainer: {
-    flex: 0,
-    backgroundColor: colors.green,
+    flex: 1,
+    backgroundColor: colors.white,
   },
   safeAreaBottomeContainer: {
-    flex: 1,
+    flex: 0,
     backgroundColor: colors.white,
   },
 });
