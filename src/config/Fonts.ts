@@ -1,11 +1,7 @@
-// const type = {
-//   regular: 'Poppins-Regular',
-//   medium: 'Poppins-Medium',
-//   semiBold: 'Poppins-SemiBold',
-// };
 export const FONT_REGULAR = 'Poppins-Regular';
 export const FONT_MEDIUM = 'Poppins-medium';
 export const FONT_SEMI_BOLD = 'Poppins-SemiBold';
+
 export const size = {
   h1: 38,
   h2: 34,

@@ -1,16 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {navigationRef} from './NavigationService';
 import Lunch from '../screens/lunch';
 import Login from '../screens/login';
-import Home from '../screens/home/';
 import ForgotPassword from '../screens/forgotPassword';
-import Profile from '../screens/profile';
 import Signup from '../screens/signup';
 import Setting from '../screens/setting';
 import {DrawerStack} from './DrawerStack';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 const Stack = createStackNavigator();
 const AuthStack = createStackNavigator();

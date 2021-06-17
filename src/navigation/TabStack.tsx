@@ -3,21 +3,18 @@ import {
   View,
   Text,
   StyleSheet,
-  Button,
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from '../screens/home';
 import Profile from '../screens/profile';
-import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../config/Colors';
 import {smartScale} from '../config/Metrics';
 import {FONT_MEDIUM} from '../config/Fonts';
 import I18n from '../I18n/I18n';
+
 const Tab = createBottomTabNavigator();
 const MyTabBar = ({state, descriptors, navigation}) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -44,16 +41,16 @@ const MyTabBar = ({state, descriptors, navigation}) => {
           if (label == 'Home') {
             tabBarIcon = 'home';
             if (isFocused) {
-              tintColor = colors.green;
+              tintColor = colors.tabIconActive;
             } else {
-              tintColor = colors.grey;
+              tintColor = colors.tabIconInActive;
             }
           } else if (label == 'Profile') {
             tabBarIcon = 'account';
             if (isFocused) {
-              tintColor = colors.green;
+              tintColor = colors.tabIconActive;
             } else {
-              tintColor = colors.grey;
+              tintColor = colors.tabIconInActive;
             }
           }
 

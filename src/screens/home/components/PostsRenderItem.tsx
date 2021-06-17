@@ -6,7 +6,6 @@ import {smartScale} from '../../../config/Metrics';
 
 const PostsRenderItem: React.FC<Props> = props => {
   const {item, index} = props;
-  console.log('PostsRenderItem item::::', item);
   return (
     <View key={index} style={{marginTop: smartScale(10)}}>
       <Text
