@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import colors from '../../config/Colors';
 import styles from './style';
 
 const Headers: React.FC<Props> = props => {
-  const {title, navigation} = props;
+  const { title, navigation } = props;
 
   return (
     <View style={styles.rowContainer}>
