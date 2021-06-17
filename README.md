@@ -8,11 +8,11 @@ This Type based Architecture scales smoothly for small - medium apps. If you guy
 
 # Features
 
-1. Typescript support.
+1. Typescript support
 
 2. React Hooks
 
-3. React Navigation with Authentication flow .
+3. React Navigation with Authentication flow
 
 4. React Native i18n
 
