@@ -8,43 +8,43 @@ This Type based Architecture scales smoothly for small - medium apps. If you guy
 
 # Features
 
-1.Typescript support.
+1. Typescript support.
 
-2.React Hooks
+2. React Hooks
 
-3.React Navigation with Authentication flow .
+3. React Navigation with Authentication flow .
 
-4.React Native i18n
+4. React Native i18n
 
-5.Apisauce
+5. Apisauce
 
-6.React Native Vector Icons
+6. React Native Vector Icons
 
-7.Redux with hooks support
+7. Redux with hooks support
 
-8.Redux Saga
+8. Redux Saga
 
-9.Redux Persist
+9. Redux Persist
 
-10.Reactron debugging
+10. Reactron debugging
 
 # Getting Started
 
-1.Clone this repo, git clone https://github.com/Manisha-Bacancy/RNBoilerPlate.git
+1. Clone this repo, git clone https://github.com/Manisha-Bacancy/RNBoilerPlate.git
 
-2.Go to project's root directory, cd <your project name>
+2. Go to project's root directory, cd <your project name>
 
-3.Remove .git folder, rm -rf .git
+3. Remove .git folder, rm -rf .git
 
-4.Use React Native Rename to update project name npx react-native-rename yourProjectName
+4. Use React Native Rename to update project name npx react-native-rename yourProjectName
 
-5.Run npm to install dependencies
+5. Run npm to install dependencies
 
-6.Start the packager with npm start
+6. Start the packager with npm start
 
-7.Connect a mobile device to your development machine
+7. Connect a mobile device to your development machine
 
-8.Run the test application:
+8. Run the test application:
 
 On Android:
 Run react-native run-android or Use Android Studio (Recommended)
