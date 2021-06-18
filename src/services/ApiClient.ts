@@ -7,7 +7,7 @@ import {BASE_URL} from './ApiRouters';
 
 // our "constructor"
 
-const create = (baseURL = BASE_URL) => {
+const create = (baseURL: string = BASE_URL) => {
   // ------
   // STEP 1
   // ------
@@ -24,6 +24,10 @@ const create = (baseURL = BASE_URL) => {
     // 10 second timeout...
     timeout: 10000,
   });
+
+  // api.addAsyncRequestTransform(async request => {
+  //   request.headers['Content-Type'] = 'application/json';
+  // });
 
   api.addAsyncResponseTransform(async response => {
     if (!response.data) {
@@ -59,7 +63,7 @@ const create = (baseURL = BASE_URL) => {
   // ------
   // STEP 3
   // ------
-  //onChangePassword
+
   // Return back a collection of functions that we would consider our
   // interface.  Most of the time it'll be just the list of all the
   // methods in step 2.

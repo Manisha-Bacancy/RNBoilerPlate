@@ -8,12 +8,12 @@ import {IProps} from '../../typescript/typeScriptDeclaration';
 const Profile: React.FC<IProps> = props => {
   let name: string = 'Manisha';
   let total: number;
-  name = 'Manisha';
+  name = 'Patel';
 
-  function add(num1: number, num2?: number) {
-    return num1 + num2;
+  function sum(num1: number, num2: number) {
+    return (total = num1 + num2);
   }
-  console.tron.log('add sum  ::-', add(10));
+  console.tron.log('add sum  ::-', sum(10, 20));
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>

@@ -14,6 +14,8 @@ import {call, put} from 'redux-saga/effects';
 import PostsActions from '../reducersAndActions/PostsRedux';
 
 /* Login Auth */
+
+// worker Saga: will be fired on POSTS_REQUEST actions
 export function* onPosts(api, action) {
   const {data} = action;
   // get current data from Store

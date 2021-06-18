@@ -1,27 +1,23 @@
-import React, {Fragment, useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  SafeAreaView,
-  FlatList,
-  ActivityIndicator,
-} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, SafeAreaView, FlatList, ActivityIndicator} from 'react-native';
 import styles from './style';
-import NavigationService from '../../navigation/NavigationService';
 import {useDispatch, useSelector} from 'react-redux';
 import PostsRedux from '../../redux/reducersAndActions/PostsRedux';
-import {smartScale} from '../../config/Metrics';
 import PostsRenderItem from './components/PostsRenderItem';
 import Headers from '../../components/headers/Header';
 import I18n from '../../I18n';
-import {IState, IProps} from '../../typescript/typeScriptDeclaration';
 
+import {IState, IProps} from '../../typescript/typeScriptDeclaration';
+// IPros and IState is a typescript interface
+// Type script is superset of javascript.
+// It's strongly type and object oriented language
 const Home: React.FC<IProps> = props => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch(); // useDispatch is work same like mapDispatchToProps method for dispatching event To redux
   const state = useSelector((state: IState) => {
+    // useSelector is work same like mapStateToProps for getting state variable from redux
     return {
       postsDataRes: state.posts.postsDataRes,
       postsResError: state.posts.postsResError,
@@ -31,10 +27,13 @@ const Home: React.FC<IProps> = props => {
   const fetchPostsList = () => {
     dispatch(PostsRedux.postsRequest());
   };
+  //use effect perform side effect in functional component
+  // use effect is a replacement of componentDidMount,componentDidUpadte and componentWillUnMount method of class
   useEffect(() => {
     setLoading(true);
     fetchPostsList();
   }, []);
+
   useEffect(() => {
     if (state.postsDataRes != null) {
       setLoading(false);

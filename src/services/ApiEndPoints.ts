@@ -13,5 +13,6 @@ export const APIStatus = {
 export const APIEndpoints = {
   //auth
   LOGIN: Routes.UsersAPIRoute + 'login',
+  //post
   POSTS_LIST: Routes.PostAPIRoute,
 };

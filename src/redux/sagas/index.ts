@@ -15,5 +15,11 @@ const api = API.create();
 /* ------------- Connect Types To Sagas ------------- */
 
 export default function* root() {
+  /*
+  You may use takeLatest.
+  Does not allow concurrent fetches of user. If "POSTS_REQUEST" gets
+  dispatched while a fetch is already pending, that pending fetch is cancelled
+  and only the latest one will be run.
+*/
   yield all([takeLatest(PostsTypes.POSTS_REQUEST, onPosts, api)]);
 }
