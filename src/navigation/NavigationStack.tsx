@@ -13,6 +13,7 @@ const Stack = createStackNavigator();
 const AuthStack = createStackNavigator();
 const LoggedInStack = createStackNavigator();
 
+// signout stack
 const SignedOutStack = props => {
   return (
     <AuthStack.Navigator screenOptions={{headerShown: false}}>
@@ -22,7 +23,7 @@ const SignedOutStack = props => {
     </AuthStack.Navigator>
   );
 };
-
+// signin stack
 const SignedInStack = props => {
   return (
     <LoggedInStack.Navigator
@@ -34,6 +35,7 @@ const SignedInStack = props => {
   );
 };
 
+// root stack
 export const AppNavigator = () => {
   return (
     <Stack.Navigator
@@ -45,6 +47,8 @@ export const AppNavigator = () => {
     </Stack.Navigator>
   );
 };
+
+// root navigation
 export const RootNavigation = () => {
   return (
     <NavigationContainer ref={navigationRef}>

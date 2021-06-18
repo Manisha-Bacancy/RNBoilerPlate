@@ -80,7 +80,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                 }}>
                 <MaterialCommunityIcons
                   name={tabBarIcon}
-                  size={smartScale(25)}
+                  size={smartScale(24)}
                   color={tintColor}
                   style={{color: tintColor}}
                 />
@@ -153,7 +153,7 @@ export const TabStack = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: smartScale(45),
+    height: smartScale(46),
 
     alignItems: 'center',
     justifyContent: 'space-evenly',
@@ -170,6 +170,6 @@ const styles = StyleSheet.create({
   tabText: {
     fontFamily: FONT_MEDIUM,
     fontSize: smartScale(12),
-    marginTop: smartScale(3),
+    marginVertical: smartScale(3),
   },
 });

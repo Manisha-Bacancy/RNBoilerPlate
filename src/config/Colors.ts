@@ -3,7 +3,7 @@ const colors = {
   black: '#000000',
   primaryColor: '#f47628',
   secondaryColor: '#0000FF',
-  tabIconActive: '#f47628',
+  tabIconActive: '#008733',
   tabIconInActive: '#1E1E1E',
   white: 'white',
   green: '#008733',

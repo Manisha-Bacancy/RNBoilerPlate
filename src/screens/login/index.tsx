@@ -12,12 +12,7 @@ const Login: React.FC<IProps> = props => {
       routes: [{name: 'SignedInStack'}],
     });
   };
-  const goForgotPassword = () => {
-    props.navigation.navigate('ForgotPassword');
-  };
-  const goSignup = () => {
-    props.navigation.navigate('Signup');
-  };
+
   return (
     <View style={styles.container}>
       <Text>{'This is login screen!'}</Text>
@@ -25,12 +20,14 @@ const Login: React.FC<IProps> = props => {
         <Text>{'Login'}</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={{marginTop: smartScale(20)}} onPress={goSignup}>
+      <TouchableOpacity
+        style={{marginTop: smartScale(20)}}
+        onPress={() => props.navigation.navigate('Signup')}>
         <Text>{'Signup'}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{marginTop: smartScale(20)}}
-        onPress={goForgotPassword}>
+        onPress={() => props.navigation.navigate('ForgotPassword')}>
         <Text>{'Forgot Password'}</Text>
       </TouchableOpacity>
     </View>

@@ -5,6 +5,7 @@ import {TabStack} from './TabStack';
 
 const Drawer = createDrawerNavigator();
 
+//drawer menu stack
 export const DrawerStack = () => {
   return (
     <Drawer.Navigator
