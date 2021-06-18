@@ -15,23 +15,13 @@ import {smartScale} from '../../config/Metrics';
 import PostsRenderItem from './components/PostsRenderItem';
 import Headers from '../../components/headers/Header';
 import I18n from '../../I18n';
+import {IState, IProps} from '../../typescript/typeScriptDeclaration';
 
-interface Props {
-  navigation: any;
-  state: RootState;
-}
-interface RootState {
-  posts: {
-    postsDataRes: any[];
-    postsResError: any;
-  };
-}
-
-const Home: React.FC<Props> = props => {
+const Home: React.FC<IProps> = props => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
   const dispatch = useDispatch();
-  const state = useSelector((state: RootState) => {
+  const state = useSelector((state: IState) => {
     return {
       postsDataRes: state.posts.postsDataRes,
       postsResError: state.posts.postsResError,

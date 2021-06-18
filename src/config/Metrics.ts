@@ -1,14 +1,11 @@
-import {
-  Dimensions,
-  Platform,
-  Alert,
-  BackHandler,
-  StatusBar,
-} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
+
 export const WINDOW = Dimensions.get('window');
 export const deviceType = WINDOW.width < 480 ? 'phone' : 'tablet';
+
 export const iPhoneX =
   Platform.OS === 'ios' && (WINDOW.height === 812 || WINDOW.height === 896);
+
 export const smartScale = value => {
   const height =
     Platform.OS === 'ios'
@@ -22,9 +19,11 @@ export const smartScale = value => {
     return (value * height) / 667;
   }
 };
+
 const screenPaddingValue = iPhoneX ? smartScale(17) : smartScale(26);
 export const screenChatPaddingValue = iPhoneX ? smartScale(34) : smartScale(26);
 const scalarSpace = iPhoneX ? smartScale(11) : smartScale(13);
+
 export const getWidthByColumn = (column = 1) => {
   const totalPixel = WINDOW.width;
   const totalSpace = screenPaddingValue * 2 + scalarSpace * (column - 1);

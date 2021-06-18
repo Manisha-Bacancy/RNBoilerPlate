@@ -2,12 +2,10 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {smartScale} from '../../config/Metrics';
 import {setIsLogin} from '../../services/AsyncStorageNRetrive';
+import {IProps} from '../../typescript/typeScriptDeclaration';
 import styles from './style';
 
-interface Props {
-  navigation: any;
-}
-const Login: React.FC<Props> = props => {
+const Login: React.FC<IProps> = props => {
   const goHome = () => {
     setIsLogin(true);
     props.navigation.reset({

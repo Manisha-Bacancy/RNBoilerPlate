@@ -3,8 +3,9 @@ import {View, SafeAreaView, Text} from 'react-native';
 import {isSignedIn} from '../../services/AsyncStorageNRetrive';
 import styles from './style';
 import NavigationService from '../../navigation/NavigationService';
+import {IProps} from '../../typescript/typeScriptDeclaration';
 
-const Lunch: React.FC = () => {
+const Lunch: React.FC<IProps> = () => {
   useEffect(() => {
     isSignedIn().then(isLoggedin => {
       if (isLoggedin == true) {

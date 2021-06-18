@@ -1,26 +1,13 @@
-import React, {Component, useState} from 'react';
-import {Fragment} from 'react';
-import {
-  SafeAreaView,
-  Image,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-  Platform,
-  Dimensions,
-  Alert,
-} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, Text, TouchableOpacity, View, Alert} from 'react-native';
 import colors from '../../config/Colors';
 import {smartScale} from '../../config/Metrics';
 import {isLogout} from '../../services/AsyncStorageNRetrive';
 import styles from './styles';
 import I18n from '../../I18n/I18n';
-interface Props {
-  navigation: any;
-}
-const DrawerMenu: React.FC<Props> = props => {
+import {IProps} from '../../typescript/typeScriptDeclaration';
+
+const DrawerMenu: React.FC<IProps> = props => {
   const [drawerItemList, setDrawerItemList] = useState([
     {
       title: I18n.t('setting.title'),
