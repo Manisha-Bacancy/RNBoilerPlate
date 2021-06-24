@@ -1,4 +1,4 @@
-import Config from './DebugConfig';
+import {DebugConfig} from './debugconfig';
 import Immutable from 'seamless-immutable';
 import Reactotron from 'reactotron-react-native';
 import {reactotronRedux as reduxPlugin} from 'reactotron-redux';
@@ -8,14 +8,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 interface PluginConfig {
   except?: string[];
 }
-
-const reactotron = Reactotron.configure({name: 'Ignite App'})
+declare global {
+  interface Console {
+    tron: any;
+  }
+}
+export const reactotron = Reactotron.configure({name: 'Ignite App'})
   .useReactNative()
   .setAsyncStorageHandler(AsyncStorage)
   .use(reduxPlugin({onRestore: Immutable}))
   .use(sagaPlugin({except: ['']}));
 
-if (Config.useReactotron) {
+if (DebugConfig.useReactotron) {
   // https://github.com/infinitered/reactotron for more options!
 
   reactotron.connect();
@@ -26,5 +30,5 @@ if (Config.useReactotron) {
   // Totally hacky, but this allows you to not both importing reactotron-react-native
   // on every file.  This is just DEV mode, so no big deal.
 }
-export default reactotron;
+
 console.tron = reactotron;

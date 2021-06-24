@@ -1,19 +1,18 @@
 import {StyleSheet} from 'react-native';
-import colors from '../../config/Colors';
-import {smartScale} from '../../config/Metrics';
+import {Colors, smartScale} from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: Colors.white,
   },
   safeAreaContainer: {
     flex: 1,
-    backgroundColor: colors.green,
+    backgroundColor: Colors.green,
   },
   safeAreaBottomeContainer: {
     flex: 0,
-    backgroundColor: colors.white,
+    backgroundColor: Colors.white,
   },
   indicatorContainer: {flex: 1, alignItems: 'center', justifyContent: 'center'},
   postListContainer: {flex: 1, margin: smartScale(10)},

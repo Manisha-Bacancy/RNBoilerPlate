@@ -1,13 +1,10 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {navigationRef} from './NavigationService';
-import Lunch from '../screens/lunch';
-import Login from '../screens/login';
-import ForgotPassword from '../screens/forgotPassword';
-import Signup from '../screens/signup';
-import Setting from '../screens/setting';
-import {DrawerStack} from './DrawerStack';
+import {navigationRef} from './navigationservice';
+
+import {Setting, Signup, ForgotPassword, Login, Lunch} from '../screens';
+import {DrawerStack} from './drawerstack';
 
 const Stack = createStackNavigator();
 const AuthStack = createStackNavigator();

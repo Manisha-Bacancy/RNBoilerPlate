@@ -1,22 +1,14 @@
-import {combineReducers} from 'redux';
 import {persistStore, persistReducer} from 'redux-persist';
-import ReduxPersist from '../config/ReduxPersist';
-import {reducer as formReducer} from 'redux-form';
-import {reducer as PostsReducer} from './reducersAndActions/PostsRedux';
-import configureStore from './store/CreateStore';
+import configureStore from './store';
 import rootSaga from './sagas';
-
-/* ------------- Assemble The Reducers ------------- */
-export const reducers = combineReducers({
-  form: formReducer,
-  posts: PostsReducer,
-});
+import {reducers} from './reducers';
+import {REDUX_PERSIST} from '../config';
 
 export default () => {
   let finalReducers = reducers;
   // If rehydration is on use persistReducer otherwise default combineReducers
-  if (ReduxPersist.active) {
-    const persistConfig = ReduxPersist.storeConfig;
+  if (REDUX_PERSIST.active) {
+    const persistConfig = REDUX_PERSIST.storeConfig;
     finalReducers = persistReducer(persistConfig, reducers);
   }
 

@@ -2,10 +2,10 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import configureStore from '../redux';
-import {RootNavigation} from '../navigation/NavigationStack';
+import {RootNavigation} from '../route/navigationstack';
 const {persistor, store} = configureStore();
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -14,5 +14,3 @@ const App: React.FC = () => {
     </Provider>
   );
 };
-
-export default App;

@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {smartScale} from '../../config/Metrics';
-import {setIsLogin} from '../../services/AsyncStorageNRetrive';
-import {IProps} from '../../typescript/typeScriptDeclaration';
+import {setIsLogin} from '../../services';
+import {smartScale} from '../../theme';
 import styles from './style';
 
-const Login: React.FC<IProps> = props => {
+interface IProps {
+  navigation: any;
+}
+
+export const Login: React.FC<IProps> = props => {
   const goHome = () => {
     setIsLogin(true);
     props.navigation.reset({
@@ -33,5 +36,3 @@ const Login: React.FC<IProps> = props => {
     </View>
   );
 };
-
-export default Login;

@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import REDUX_PERSIST from '../../config/ReduxPersist';
+import {REDUX_PERSIST} from '../config';
 
 // creates the store
 export default (rootReducer, rootSaga) => {

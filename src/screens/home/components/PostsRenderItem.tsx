@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {smartScale} from '../../../config/Metrics';
+import {smartScale} from '../../../theme';
 import styles from './style';
 
 interface Props {
@@ -11,6 +11,7 @@ interface Props {
 interface ItemState {
   title: string;
 }
+
 const PostsRenderItem: React.FC<Props> = props => {
   const {item, index} = props;
   const {title} = item;

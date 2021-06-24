@@ -1,4 +1,4 @@
-export default {
+export const DebugConfig = {
   showDevScreens: __DEV__,
   useFixtures: false,
   ezLogin: false,

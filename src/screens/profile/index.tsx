@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, SafeAreaView} from 'react-native';
-import Headers from '../../components/headers/Header';
+import {Headers} from '../../components';
 import styles from './style';
 import I18n from '../../I18n/I18n';
-import {IProps} from '../../typescript/typeScriptDeclaration';
 
-const Profile: React.FC<IProps> = props => {
+interface IProps {
+  navigation: any;
+}
+
+export const Profile: React.FC<IProps> = props => {
   let name: string = 'Manisha';
   let total: number;
   name = 'Patel';
@@ -29,5 +32,3 @@ const Profile: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
-
-export default Profile;

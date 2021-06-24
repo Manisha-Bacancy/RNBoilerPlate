@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {View, SafeAreaView, Text} from 'react-native';
-import {isSignedIn} from '../../services/AsyncStorageNRetrive';
+import {isSignedIn} from '../../services';
 import styles from './style';
-import NavigationService from '../../navigation/NavigationService';
-import {IProps} from '../../typescript/typeScriptDeclaration';
+import NavigationService from '../../route/navigationservice';
 
-const Lunch: React.FC<IProps> = () => {
+interface IProps {
+  navigation: any;
+}
+
+export const Lunch: React.FC<IProps> = () => {
   useEffect(() => {
     isSignedIn().then(isLoggedin => {
       if (isLoggedin == true) {
@@ -21,5 +24,3 @@ const Lunch: React.FC<IProps> = () => {
     </SafeAreaView>
   );
 };
-
-export default Lunch;

@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View, Alert} from 'react-native';
-import colors from '../../config/Colors';
-import {smartScale} from '../../config/Metrics';
-import {isLogout} from '../../services/AsyncStorageNRetrive';
+import {isLogout} from '../../services';
 import styles from './styles';
 import I18n from '../../I18n/I18n';
-import {IProps} from '../../typescript/typeScriptDeclaration';
+import {Colors, smartScale} from '../../theme';
 
-const DrawerMenu: React.FC<IProps> = props => {
+interface IProps {
+  navigation: any;
+}
+
+export const DrawerMenu: React.FC<IProps> = props => {
   const [drawerItemList, setDrawerItemList] = useState([
     {
       title: I18n.t('setting.title'),
@@ -70,7 +72,7 @@ const DrawerMenu: React.FC<IProps> = props => {
                 onPress={() => onItemSelection(item)}>
                 <Text>{title}</Text>
               </TouchableOpacity>
-              <View style={{height: 1, backgroundColor: colors.grey}} />
+              <View style={{height: 1, backgroundColor: Colors.grey}} />
             </View>
           );
         })}
@@ -79,5 +81,3 @@ const DrawerMenu: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
-
-export default DrawerMenu;

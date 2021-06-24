@@ -2,21 +2,25 @@ import React, {useEffect, useState} from 'react';
 import {View, SafeAreaView, FlatList, ActivityIndicator} from 'react-native';
 import styles from './style';
 import {useDispatch, useSelector} from 'react-redux';
-import PostsRedux from '../../redux/reducersAndActions/PostsRedux';
+import PostsRedux from './reducer_actions';
 import PostsRenderItem from './components/PostsRenderItem';
-import Headers from '../../components/headers/Header';
+import {Headers} from '../../components/';
 import I18n from '../../I18n';
 
-import {IState, IProps} from '../../typescript/typeScriptDeclaration';
-// IPros and IState is a typescript interface
-// Type script is superset of javascript.
-// It's strongly type and object oriented language
-const Home: React.FC<IProps> = props => {
+interface IProps {
+  navigation: any;
+}
+declare global {
+  interface Console {
+    tron: any;
+  }
+}
+export const Home: React.FC<IProps> = props => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
 
   const dispatch = useDispatch(); // useDispatch is work same like mapDispatchToProps method for dispatching event To redux
-  const state = useSelector((state: IState) => {
+  const state = useSelector((state: any) => {
     // useSelector is work same like mapStateToProps for getting state variable from redux
     return {
       postsDataRes: state.posts.postsDataRes,
@@ -36,6 +40,10 @@ const Home: React.FC<IProps> = props => {
 
   useEffect(() => {
     if (state.postsDataRes != null) {
+      console.tron.log(
+        '🚀 ~ file: index.tsx ~ line 43 ~ useEffect ~ postsDataRes',
+        state.postsDataRes,
+      );
       setLoading(false);
       setPosts(state.postsDataRes);
     } else if (state.postsResError != null) {
@@ -68,5 +76,3 @@ const Home: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
-
-export default Home;

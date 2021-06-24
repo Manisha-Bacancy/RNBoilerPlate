@@ -1,36 +1,28 @@
 import {createReducer, createActions} from 'reduxsauce';
 import Immutable from 'seamless-immutable';
 
+/* ------------- Initial State ------------- */
+
+export const INITIAL_STATE = Immutable({
+  data: null,
+  fetching: false,
+  postsDataRes: null,
+  postsResError: null,
+});
 /* ------------- Types and Action Creators ------------- */
 
 const {Types, Creators} = createActions({
-  // login
   postsRequest: ['data'],
   postsSuccess: ['postsDataRes'],
   postsFailure: ['postsResError'],
 });
 
 export const PostsTypes = Types;
+
 export default Creators;
 
-/* ------------- Initial State ------------- */
+/* ------------- Actions ------------- */
 
-export const INITIAL_STATE = Immutable({
-  data: null,
-  fetching: null,
-  postsDataRes: null,
-  postsResError: null,
-});
-
-/* ------------- Selectors ------------- */
-
-export const PostsSelectors = {
-  getData: state => state.data,
-};
-
-/* ------------- Reducers ------------- */
-
-// postsRequest
 export const postsRequest = (state, {data}) => {
   return state.merge({
     fetching: true,
@@ -59,7 +51,7 @@ export const postsFailure = (state, action) => {
   });
 };
 
-/* reducer  */
+/* ------------- Reducers ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
   //Login
   [Types.POSTS_REQUEST]: postsRequest,

@@ -1,13 +1,13 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce';
-import {APIEndpoints} from './ApiEndPoints';
+import {APIEndpoints} from './apiendpoints';
 
-import {NETWORK_ERROR_MSG} from '../utils/AppUtils';
-import {BASE_URL} from './ApiRouters';
-
+import {NETWORK_ERROR_MSG} from '../utils';
+//import {BASE_URL} from './ApiRouters';
+import Config from 'react-native-config';
 // our "constructor"
 
-const create = (baseURL: string = BASE_URL) => {
+const create = (baseURL: string = Config.BASE_URL) => {
   // ------
   // STEP 1
   // ------

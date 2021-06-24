@@ -1,23 +1,21 @@
 import {StyleSheet} from 'react-native';
-import colors from '../../config/Colors';
-import {FONT_SEMI_BOLD} from '../../config/Fonts';
-import {smartScale} from '../../config/Metrics';
+import {Colors, Fonts, FontSize, smartScale} from '../../theme';
 
 const styles = StyleSheet.create({
   rowContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: colors.green,
+    backgroundColor: Colors.green,
     height: smartScale(50),
     paddingHorizontal: smartScale(10),
   },
   txtTitle: {
     flex: 1,
     textAlign: 'center',
-    fontFamily: FONT_SEMI_BOLD,
-    fontSize: smartScale(15),
-    color: colors.white,
+    fontFamily: Fonts.fontMedium,
+    fontSize: FontSize.Large,
+    color: Colors.white,
   },
   rightHeaderIcon: {height: smartScale(30), width: smartScale(30)},
 });

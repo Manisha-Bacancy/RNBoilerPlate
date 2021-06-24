@@ -1,18 +1,16 @@
 import {StyleSheet} from 'react-native';
-import colors from '../../../config/Colors';
-import {FONT_REGULAR} from '../../../config/Fonts';
-import {smartScale} from '../../../config/Metrics';
+import {Colors, Fonts, FontSize, smartScale} from '../../../theme';
 
 const styles = StyleSheet.create({
   txtTitle: {
-    color: colors.black,
-    fontFamily: FONT_REGULAR,
-    fontSize: smartScale(14),
+    color: Colors.black,
+    fontFamily: Fonts.fontMedium,
+    fontSize: FontSize.MediumLarge,
   },
   divider: {
     height: smartScale(1),
     marginTop: smartScale(10),
-    backgroundColor: colors.grey,
+    backgroundColor: Colors.grey,
   },
 });
 
