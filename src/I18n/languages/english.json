@@ -14,7 +14,7 @@
   "password": "Password",
   "cancel": "Cancel",
   "welcome": "Welcome",
-  "login": "Login",
+
   "tempIndicator": "F",
   "componentExamples": "Component Examples",
   "usageExamples": "Usage Examples",
@@ -25,6 +25,11 @@
   "search": "Search",
   "auth": {
     "signOutMsg": "Are you sure you want to Sign out ?"
+  },
+  "login": {
+    "email": "Email",
+    "password": "Password",
+    "btnLogin": "Login"
   },
   "home": {
     "title": "Home"

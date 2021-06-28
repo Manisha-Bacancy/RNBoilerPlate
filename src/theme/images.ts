@@ -2,6 +2,7 @@
  */
 export const Images = {
   icons: {
-    //logo: require('../assets/images/icons/logo.png'),
+    eyeclose: require('../assets/images/icons/eye-closed.png'),
+    eye: require('../assets/images/icons/eye.png'),
   },
 };

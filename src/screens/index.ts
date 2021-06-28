@@ -6,3 +6,4 @@ export * from './signup';
 export * from './setting';
 export * from './lunch';
 export * from './app';
+export * from './notification';

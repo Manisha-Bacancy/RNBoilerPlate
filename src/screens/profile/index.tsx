@@ -9,20 +9,15 @@ interface IProps {
 }
 
 export const Profile: React.FC<IProps> = props => {
-  let name: string = 'Manisha';
-  let total: number;
-  name = 'Patel';
-
-  function sum(num1: number, num2: number) {
-    return (total = num1 + num2);
-  }
-  console.tron.log('add sum  ::-', sum(10, 20));
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <Headers
           title={I18n.t('profile.title')}
           navigation={props.navigation}
+          leftButtonType={'menu'}
+          leftIcon={'md-menu'}
+          leftAction={() => props.navigation.openDrawer()}
         />
         <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
           <Text>{'This is Profile screen!'}</Text>

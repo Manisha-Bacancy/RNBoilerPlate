@@ -8,4 +8,10 @@ export const Colors = {
   white: 'white',
   green: '#008733',
   red: '#FF0000',
+  titleColor: '#8E8E93',
+  error: 'rgba(200, 0, 0, 0.8)',
+  infoText: '#E0F7FA',
+  placeholderBackground: 'white',
+  placeholderTextColor: '#a3a3a3',
+  buttonColor: '#008733',
 };

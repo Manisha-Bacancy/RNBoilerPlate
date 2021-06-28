@@ -2,7 +2,7 @@ import {Dimensions, Platform} from 'react-native';
 
 export const WINDOW = Dimensions.get('window');
 export const deviceType = WINDOW.width < 480 ? 'phone' : 'tablet';
-
+export const aspectRatio = WINDOW.height / WINDOW.width;
 export const iPhoneX =
   Platform.OS === 'ios' && (WINDOW.height === 812 || WINDOW.height === 896);
 
