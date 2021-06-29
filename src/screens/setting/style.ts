@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from '../../theme';
+import {Colors, smartScale} from '../../theme';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,6 +13,27 @@ const styles = StyleSheet.create({
   safeAreaBottomeContainer: {
     flex: 0,
     backgroundColor: Colors.red,
+  },
+  webviewstyle: {
+    backgroundColor: 'transparent',
+  },
+  innerCircleStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 63,
+    height: 30,
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  activeTextStyle: {
+    color: Colors.green,
+    paddingRight: smartScale(13),
+    fontSize: smartScale(15),
+  },
+  inactiveTextStyle: {
+    color: Colors.grey,
+    paddingLeft: smartScale(13),
+    fontSize: smartScale(15),
   },
 });
 

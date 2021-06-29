@@ -26,7 +26,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   rowTextView: {
-    color: Colors.titleColor,
+    color: Colors.red,
     paddingTop: smartScale(5),
     paddingBottom: smartScale(5),
     fontSize: smartScale(17),

@@ -16,6 +16,16 @@ const styles = StyleSheet.create({
   },
   indicatorContainer: {flex: 1, alignItems: 'center', justifyContent: 'center'},
   postListContainer: {flex: 1, margin: smartScale(10)},
+  textInputContainerStyle: {
+    borderRadius: smartScale(10),
+    borderColor: Colors.grey,
+    borderWidth: 1,
+  },
+  iconStyle: {
+    marginLeft: smartScale(5),
+    color: Colors.grey,
+    marginRight: smartScale(5),
+  },
 });
 
 export default styles;

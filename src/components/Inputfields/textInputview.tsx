@@ -14,6 +14,7 @@ import {
 
 TextInputView.propTypes = {
   icon: PropTypes.string,
+  refProp: PropTypes.any,
   value: PropTypes.string,
   keyboardType: PropTypes.string,
   autoCapitalize: PropTypes.string,
@@ -21,7 +22,7 @@ TextInputView.propTypes = {
   inputFormat: PropTypes.string,
   autoFocus: PropTypes.any,
   returnKeyType: PropTypes.any,
-
+  numberOfLines: PropTypes.number,
   onChangeText: PropTypes.func,
   onEndEditing: PropTypes.func,
   onSubmitEditing: PropTypes.func,
@@ -30,6 +31,8 @@ TextInputView.propTypes = {
   errorMessage: PropTypes.string,
   rightLabel: PropTypes.string,
   onBlur: PropTypes.func,
+  textInputContainerStyle: PropTypes.any,
+  iconStyles: PropTypes.any,
 };
 
 TextInputView.defaultProps = {
@@ -46,7 +49,7 @@ TextInputView.defaultProps = {
   editable: true,
 };
 
-function TextInputView(props) {
+export function TextInputView(props) {
   const {
     errorMessage,
     rightLabel,
@@ -135,7 +138,7 @@ function TextInputView(props) {
             ]}
             {...input}
             name={name}
-            ref={refProp ? refProp : node => (this.input = node)}
+            ref={refProp}
             keyboardType={keyboardType}
             placeholder={placeholder}
             value={value}
@@ -188,7 +191,7 @@ function TextInputView(props) {
         </View>
       </View>
 
-      {errorMessage != null ? (
+      {errorMessage != null && errorMessage != '' ? (
         <Text
           numberOfLines={1}
           ellipsizeMode={'tail'}
@@ -207,5 +210,3 @@ function TextInputView(props) {
     </View>
   );
 }
-
-export default TextInputView;

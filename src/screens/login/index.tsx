@@ -4,7 +4,7 @@ import {MyStatusBar} from '../../components';
 import {setIsLogin} from '../../services';
 import {Colors, Images, smartScale} from '../../theme';
 import styles from './style';
-import {InputField} from '../../components/textinputfield/textInputField';
+
 import I18n from '../../I18n/I18n';
 import {
   reduxForm,
@@ -16,8 +16,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {EMAIL_REGEX, isStringIncludeEmoji} from '../../utils/constants';
 import {Button} from '../../components';
 import {connect} from 'react-redux';
-import {compose} from 'redux';
-
+import {InputField} from '../../components/Inputfields';
 interface IProps {
   navigation: any;
   email: string;
@@ -46,9 +45,9 @@ const Login = (props: any) => {
   };
 
   useEffect(() => {
-    // props.change('email', 'manisha@gmail.com');
-    //props.change('password', 'Manisha@123');
-  }, [props]);
+    props.change('email', 'manisha@gmail.com');
+    props.change('password', 'Manisha@123');
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>

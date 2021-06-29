@@ -32,7 +32,8 @@
     "btnLogin": "Login"
   },
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "search": "Search"
   },
   "setting": {
     "title": "Setting"

@@ -3,19 +3,20 @@ import {Platform, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Field} from 'redux-form';
 import {Colors} from '../../theme';
 import styles from './style';
+
 interface Props {
   navigation?: any;
   title?: string;
   editable?: any;
-  name?: string;
-  refProp?: any;
+  name: string;
+  refProp: any;
   input?: any;
   multiline?: boolean;
   keyboardType?: string;
   inputFormat?: any;
   onChangeText?: Function;
   changeSuccessColor?: any;
-  placeholder?: string;
+  placeholder: string;
   secureTextEntry?: any;
   _onFocus?: Function;
   _onBlur?: Function;
@@ -121,7 +122,6 @@ const CustomField: React.FC<Props> = props => {
           {...restInput}
           name={name}
           ref={refProp}
-          // ref={refProp ? refProp : node => inputRef}
           keyboardType={keyboardType}
           placeholder={placeholder}
           multiline={multiline}
@@ -177,6 +177,5 @@ const CustomField: React.FC<Props> = props => {
 
 export const InputField: React.FC<Props> = props => {
   const inputRef = useRef(null);
-
   return <Field {...props} component={CustomField} ref={inputRef} withRef />;
 };
