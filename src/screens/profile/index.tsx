@@ -21,65 +21,9 @@ export const Profile: React.FC<IProps> = props => {
           leftIcon={'md-menu'}
           leftAction={() => props.navigation.openDrawer()}
         />
-        <ScrollView style={{flex: 1}}>
-          <View style={{backgroundColor: 'pink'}}>
-            <WebView
-              source={{
-                uri: 'https://mtbguru.s3.us-east-2.amazonaws.com/gallery/zdFhvKMJ9wEF4.html',
-              }}
-              style={{height: 200, width: '100%'}}
-              scrollEnabled={true}
-              javaScriptEnabled={true}
-              //source={{uri: PrivacyData.TERMS_OF_SERVICE}}
-              // onLoadStart={()=>this.props.loader(true)}
-              // onLoadEnd={()=>this.props.loader(false)}
-              // injectedJavaScript={meta}
-              scalesPageToFit={true}
-              startInLoadingState={true}
-              automaticallyAdjustsScrollIndicatorInsets={true}
-              automaticallyAdjustContentInsets={false}
-            />
-          </View>
-
-          <View style={{backgroundColor: 'yellow', flex: 1}}>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-            <Text style={{height: smartScale(100)}}>
-              {'This is Profile screen!'}
-            </Text>
-          </View>
-        </ScrollView>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+          <Text>{'Profil screen !'}</Text>
+        </View>
       </View>
       <SafeAreaView style={styles.safeAreaBottomeContainer} />
     </SafeAreaView>
