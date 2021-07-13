@@ -1,7 +1,6 @@
 import React, {Fragment, useState} from 'react';
-import {View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
+import {View, Text, TouchableOpacity, SafeAreaView,StyleSheet} from 'react-native';
 import NavigationService from '../../route/navigationservice';
-import styles from './style';
 import {Headers, MyStatusBar, CustomSwitch} from '../../components';
 import I18n from '../../I18n';
 import {Colors, smartScale} from '../../theme';
@@ -82,3 +81,40 @@ export const Setting: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.white,
+  },
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: Colors.green,
+  },
+  safeAreaBottomeContainer: {
+    flex: 0,
+    backgroundColor: Colors.red,
+  },
+  webviewstyle: {
+    backgroundColor: 'transparent',
+  },
+  innerCircleStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 63,
+    height: 30,
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  activeTextStyle: {
+    color: Colors.green,
+    paddingRight: smartScale(13),
+    fontSize: smartScale(15),
+  },
+  inactiveTextStyle: {
+    color: Colors.grey,
+    paddingLeft: smartScale(13),
+    fontSize: smartScale(15),
+  },
+});
+

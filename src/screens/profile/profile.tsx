@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, ScrollView, Text, SafeAreaView} from 'react-native';
+import {View, ScrollView, Text, SafeAreaView,StyleSheet} from 'react-native';
 import {Headers} from '../../components';
-import styles from './style';
+
 import I18n from '../../I18n/I18n';
-import {smartScale} from '../../theme';
+import {Colors, smartScale} from '../../theme';
 import {WebView} from 'react-native-webview';
 
 interface IProps {
@@ -29,3 +29,19 @@ export const Profile: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.white,
+  },
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: Colors.green,
+  },
+  safeAreaBottomeContainer: {
+    flex: 0,
+    backgroundColor: Colors.white,
+  },
+});

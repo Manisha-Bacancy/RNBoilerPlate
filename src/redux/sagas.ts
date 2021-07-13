@@ -1,10 +1,10 @@
 import {all} from 'redux-saga/effects';
-import loginSaga from '../screens/home/saga';
+import authSaga from '../modules/auth/saga';
 
-export default function* root() {
+
+export default function* rootSagas() {
   yield all([
     // some sagas only receive an action
-    //takeLatest(PostsTypes.POSTS_REQUEST, onPosts, api),
-    loginSaga(),
+    authSaga(),
   ]);
 }

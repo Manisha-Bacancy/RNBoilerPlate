@@ -1,10 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {View, Text, TouchableOpacity, Image, SafeAreaView} from 'react-native';
+import {View, Text, TouchableOpacity, Image, SafeAreaView, Platform,StyleSheet} from 'react-native';
 import {MyStatusBar} from '../../components';
 import {setIsLogin} from '../../services';
 import {Colors, Images, smartScale} from '../../theme';
-import styles from './style';
+import {signInWithEmail} from '../../modules/auth/actions'
 
+import Config from 'react-native-config';
 import I18n from '../../I18n/I18n';
 import {
   reduxForm,
@@ -35,9 +36,39 @@ const Login = (props: any) => {
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
+  const dispatch = useDispatch(); 
 
   const {handleSubmit} = props;
-  const goHome = value => {
+  const goHome = () => {
+    // const params={"email":props.email,"password":props.password,"deviceToken": {
+    //   "deviceTokenString": "deviceToken",
+    //   "os": Platform.OS=='android'?'android':'ios',
+    // },};
+
+    // dispatch(signInWithEmail(params));
+
+//------------------------
+
+
+
+// fetch(Config.BASE_URL+'user/login', {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(params)
+// }).then((response) => response.json())
+// .then((json) => {
+
+// });
+
+
+ 
+
+//-----------------------------
+
+
     setIsLogin(true);
     props.navigation.reset({
       routes: [{name: 'SignedInStack'}],
@@ -45,8 +76,8 @@ const Login = (props: any) => {
   };
 
   useEffect(() => {
-    props.change('email', 'manisha@gmail.com');
-    props.change('password', 'Manisha@123');
+    props.change('email', 'testproduction@yopmail.com');
+    props.change('password', 'Test@123');
   }, []);
 
   return (
@@ -155,3 +186,43 @@ export default connect(state => {
     password,
   };
 })(DecoratedSampleForm);
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: smartScale(20),
+    backgroundColor: Colors.white,
+  },
+  safeAreaContainer: {flex: 1, backgroundColor: Colors.white},
+  mainContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  textInputContainer: {marginTop: smartScale(80)},
+  textInputStyle: {marginLeft: smartScale(-4)},
+  textInputContainerStyle: {marginBottom: smartScale(5)},
+  passwordContainerStyle: {marginTop: smartScale(10)},
+  passwordShowHideImgStyle: {
+    height: smartScale(25),
+    width: smartScale(25),
+    tintColor: Colors.grey,
+  },
+  buttonStyle: {
+    shadowColor: Colors.buttonColor,
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 12.35,
+    elevation: 19,
+  },
+  forgotPwdContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  marginTo20Style: {marginTop: smartScale(20)},
+});

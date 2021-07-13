@@ -1,12 +1,13 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {View, SafeAreaView, FlatList, ActivityIndicator} from 'react-native';
-import styles from './style';
+import {View, SafeAreaView, FlatList, ActivityIndicator,StyleSheet} from 'react-native';
+
 import {useDispatch, useSelector} from 'react-redux';
-import PostsRedux from './reducer_actions';
+
 import PostsRenderItem from './components/PostsRenderItem';
-import {Headers, TextInputView} from '../../components/';
+import {Headers, TextInputView} from '../../components';
 import I18n from '../../I18n';
 import Loader from '../../components/loaders/loader';
+import { Colors, smartScale } from '../../theme';
 
 interface IProps {
   navigation: any;
@@ -17,39 +18,18 @@ declare global {
   }
 }
 export const Home: React.FC<IProps> = props => {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [fullData, setFullData] = useState([]);
   const [search, setSearch] = useState('');
   const searchRef = useRef(null);
 
-  const dispatch = useDispatch(); // useDispatch is work same like mapDispatchToProps method for dispatching event To redux
-  const state = useSelector((state: any) => {
-    // useSelector is work same like mapStateToProps for getting state variable from redux
-    return {
-      postsDataRes: state.posts.postsDataRes,
-      postsResError: state.posts.postsResError,
-    };
-  });
-
-  const fetchPostsList = () => {
-    dispatch(PostsRedux.postsRequest());
-  };
   //use effect perform side effect in functional component
   // use effect is a replacement of componentDidMount,componentDidUpadte and componentWillUnMount method of class
   useEffect(() => {
-    setLoading(true);
-    fetchPostsList();
+   
   }, []);
-  useEffect(() => {
-    if (state.postsDataRes != null) {
-      setLoading(false);
-      setPosts(state.postsDataRes);
-      setFullData(state.postsDataRes);
-    } else if (state.postsResError != null) {
-      setLoading(false);
-    }
-  }, [state]);
+ 
   //Search view--Done't remove code
   // const onSearchTextChange = (value: string) => {
   //   let text = value.toLowerCase();
@@ -116,3 +96,31 @@ export const Home: React.FC<IProps> = props => {
     </SafeAreaView>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.white,
+  },
+  safeAreaContainer: {
+    flex: 1,
+    backgroundColor: Colors.green,
+  },
+  safeAreaBottomeContainer: {
+    flex: 0,
+    backgroundColor: Colors.white,
+  },
+  indicatorContainer: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+  postListContainer: {flex: 1, margin: smartScale(10)},
+  textInputContainerStyle: {
+    borderRadius: smartScale(10),
+    borderColor: Colors.grey,
+    borderWidth: 1,
+  },
+  iconStyle: {
+    marginLeft: smartScale(5),
+    color: Colors.grey,
+    marginRight: smartScale(5),
+  },
+});

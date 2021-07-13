@@ -1,7 +1,7 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import configureStore from '../redux';
+import configureStore from '../redux/store';
 import {RootNavigation} from '../route/navigationstack';
 const {persistor, store} = configureStore();
 

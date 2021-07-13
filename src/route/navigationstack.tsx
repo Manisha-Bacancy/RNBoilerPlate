@@ -15,10 +15,10 @@ import {
   ForgotPassword,
   Lunch,
   Notification,
-  //Login,
 } from '../screens';
 import {DrawerStack} from './drawerstack';
-import login from '../screens/login';
+import login from '../screens/auth/login';
+
 
 const TransitionScreenOptions = {
   //...TransitionPresets.SlideFromRightIOS, // This is where the transition happens
