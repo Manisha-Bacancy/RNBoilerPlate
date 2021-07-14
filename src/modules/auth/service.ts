@@ -1,7 +1,8 @@
 import axios from '../../api/axios';
 
 export const endpoints = {
-    login: 'user/login'
+    login: 'user/login',
+    posts:'posts'
 };
 
 /**
@@ -12,3 +13,6 @@ export const endpoints = {
  */
  export const loginWithEmail = (data:any) =>
  axios.post(endpoints.login,data);
+
+ export const getPosts = () =>
+ axios.get(endpoints.posts);

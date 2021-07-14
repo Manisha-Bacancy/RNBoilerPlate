@@ -40,6 +40,8 @@ const Login = (props: any) => {
 
   const {handleSubmit} = props;
   const goHome = () => {
+
+    // api call
     // const params={"email":props.email,"password":props.password,"deviceToken": {
     //   "deviceTokenString": "deviceToken",
     //   "os": Platform.OS=='android'?'android':'ios',
@@ -47,28 +49,7 @@ const Login = (props: any) => {
 
     // dispatch(signInWithEmail(params));
 
-//------------------------
-
-
-
-// fetch(Config.BASE_URL+'user/login', {
-//   method: 'POST',
-//   headers: {
-//     Accept: 'application/json',
-//     'Content-Type': 'application/json'
-//   },
-//   body: JSON.stringify(params)
-// }).then((response) => response.json())
-// .then((json) => {
-
-// });
-
-
- 
-
-//-----------------------------
-
-
+    //-----------------------
     setIsLogin(true);
     props.navigation.reset({
       routes: [{name: 'SignedInStack'}],
