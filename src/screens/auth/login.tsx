@@ -1,9 +1,17 @@
 import React, {useState, useRef, useEffect} from 'react';
-import {View, Text, TouchableOpacity, Image, SafeAreaView, Platform,StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  SafeAreaView,
+  Platform,
+  StyleSheet,
+} from 'react-native';
 import {MyStatusBar} from '../../components';
 import {setIsLogin} from '../../services';
 import {Colors, Images, smartScale} from '../../theme';
-import {signInWithEmail} from '../../modules/auth/actions'
+import {signInWithEmail} from '../../modules/auth/actions';
 
 import Config from 'react-native-config';
 import I18n from '../../I18n/I18n';
@@ -32,24 +40,13 @@ interface IProps {
 type Props = IProps & InjectedFormProps<any, {}, string>;
 
 const Login = (props: any) => {
-  //const Login: React.FC<Props> = props => {
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
 
   const {handleSubmit} = props;
   const goHome = () => {
-
-    // api call
-    // const params={"email":props.email,"password":props.password,"deviceToken": {
-    //   "deviceTokenString": "deviceToken",
-    //   "os": Platform.OS=='android'?'android':'ios',
-    // },};
-
-    // dispatch(signInWithEmail(params));
-
-    //-----------------------
     setIsLogin(true);
     props.navigation.reset({
       routes: [{name: 'SignedInStack'}],
@@ -57,7 +54,7 @@ const Login = (props: any) => {
   };
 
   useEffect(() => {
-    props.change('email', 'testproduction@yopmail.com');
+    props.change('email', 'test@yopmail.com');
     props.change('password', 'Test@123');
   }, []);
 
@@ -167,7 +164,6 @@ export default connect(state => {
     password,
   };
 })(DecoratedSampleForm);
-
 
 const styles = StyleSheet.create({
   container: {

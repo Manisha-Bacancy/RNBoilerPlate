@@ -1,4 +1,4 @@
-export * from './auth/forgot-password';
+export * from './auth/forgotpassword';
 export * from './auth/login';
 export * from './profile/profile';
 export * from './home/home';

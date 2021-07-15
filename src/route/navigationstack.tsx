@@ -8,17 +8,16 @@ import {
 } from '@react-navigation/stack';
 import {navigationRef} from './navigationservice';
 import {horizontalAnimation} from '../utils/horizontalAnimation';
-
+import {DrawerStack} from './drawerstack';
+import {TabStack} from './tabstack';
+import Login from '../screens/auth/login';
 import {
+  AuthLoading,
+  ForgotPassword,
+  Notification,
   Setting,
   Signup,
-  ForgotPassword,
-  Lunch,
-  Notification,
 } from '../screens';
-import {DrawerStack} from './drawerstack';
-import login from '../screens/auth/login';
-
 
 const TransitionScreenOptions = {
   //...TransitionPresets.SlideFromRightIOS, // This is where the transition happens
@@ -33,7 +32,7 @@ const LoggedInStack = createStackNavigator();
 const SignedOutStack = props => {
   return (
     <AuthStack.Navigator screenOptions={TransitionScreenOptions}>
-      <Stack.Screen name="Login" component={login} />
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       <Stack.Screen name="Signup" component={Signup} />
     </AuthStack.Navigator>
@@ -45,6 +44,7 @@ const SignedInStack = props => {
     <LoggedInStack.Navigator
       initialRouteName={'DrawerStack'}
       screenOptions={TransitionScreenOptions}>
+      {/*  <Stack.Screen name="TabStack" component={TabStack} /> */}
       <Stack.Screen name="DrawerStack" component={DrawerStack} />
       <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen name="Notification" component={Notification} />
@@ -58,7 +58,7 @@ export const AppNavigator = () => {
     <Stack.Navigator
       initialRouteName={'Lunch'}
       screenOptions={TransitionScreenOptions}>
-      <Stack.Screen name="Lunch" component={Lunch} />
+      <Stack.Screen name="Lunch" component={AuthLoading} />
       <Stack.Screen name="SignedInStack" component={SignedInStack} />
       <Stack.Screen name="SignedOutStack" component={SignedOutStack} />
     </Stack.Navigator>
