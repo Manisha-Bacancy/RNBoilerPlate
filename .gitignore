@@ -60,3 +60,5 @@ buck-out/
 
 #lock
 yarn.lock
+# react-native-config codegen
+ios/tmp.xcconfig
