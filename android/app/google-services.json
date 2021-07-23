@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "688212137179",
+    "project_id": "rnboiperplatedemo",
+    "storage_bucket": "rnboiperplatedemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688212137179:android:ba6151defc9eca7df9a8fe",
+        "android_client_info": {
+          "package_name": "com.rnativeboilerplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688212137179-7fvu4gkqhoaiqbj5lk0u937s6q1o3too.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnativeboilerplate",
+            "certificate_hash": "3e5fbc67447dd6180785a0726d97a1dbf57bfca8"
+          }
+        },
+        {
+          "client_id": "688212137179-tf6puqaqe41v9f0vfoh16ofggese1t1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rnativeboilerplate",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "688212137179-rakt3msffg9e50g5m2pe5pqu8uvd7i0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAaDkEwWn_g-Zzyuy3hitHOzXPtpDkcSc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688212137179-rakt3msffg9e50g5m2pe5pqu8uvd7i0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

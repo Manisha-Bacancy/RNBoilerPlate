@@ -27,3 +27,23 @@ export const setIsLogin = async data => {
     } catch (error) {}
   }
 };
+
+export const getLoginMethod = () => {
+  return new Promise(async (resolve, reject) => {
+    const isMethod = await AsyncStorage.getItem('method');
+
+    if (isMethod != undefined && isMethod !== null && isMethod !== '') {
+      resolve(isMethod);
+    } else {
+      resolve(null);
+    }
+  });
+};
+
+export const setLoginMethod = async data => {
+  if (data != null) {
+    try {
+      await AsyncStorage.setItem('method', JSON.stringify(data));
+    } catch (error) {}
+  }
+};

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View, Alert} from 'react-native';
-import {isLogout} from '../../services';
+import {getLoginMethod, isLogout} from '../../services';
 import styles from './styles';
 import I18n from '../../I18n/I18n';
 import {Colors, smartScale} from '../../theme';
-
+import appleAuth from '@invertase/react-native-apple-authentication';
+import {GoogleSignin} from '@react-native-community/google-signin';
+import {LoginManager} from 'react-native-fbsdk';
 interface IProps {
   navigation: any;
 }
@@ -24,6 +26,36 @@ export const DrawerMenu: React.FC<IProps> = props => {
       route: 'SignedOut',
     },
   ]);
+  const onLogout = async () => {
+    const method = await getLoginMethod();
+    console.log('onLogout:::::', method);
+    await isLogout();
+
+    // Sign Out Google
+    if (method != null && method != undefined && method != '') {
+      if (method === 'google') {
+        await GoogleSignin.revokeAccess();
+        await GoogleSignin.signOut();
+      }
+
+      // Sign Out Apple
+      if (method === 'apple') {
+        await appleAuth.performRequest({
+          requestedOperation: appleAuth.Operation.LOGOUT,
+        });
+      }
+
+      // Sign Out Facebook
+      if (method === 'facebook') {
+        LoginManager.logOut();
+      }
+    }
+
+    props.navigation.reset({
+      index: 0,
+      routes: [{name: 'SignedOutStack'}],
+    });
+  };
   const onItemSelection = item => {
     const {type, route, title} = item;
     props.navigation.closeDrawer();
@@ -41,13 +73,7 @@ export const DrawerMenu: React.FC<IProps> = props => {
           },
           {
             text: 'ok',
-            onPress: async () => {
-              await isLogout();
-              props.navigation.reset({
-                index: 0,
-                routes: [{name: 'SignedOutStack'}],
-              });
-            },
+            onPress: async () => onLogout(),
           },
         ],
         {

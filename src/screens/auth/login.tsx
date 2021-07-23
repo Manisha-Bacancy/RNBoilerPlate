@@ -26,6 +26,7 @@ import {EMAIL_REGEX, isStringIncludeEmoji} from '../../utils/constants';
 import {Button} from '../../components';
 import {connect} from 'react-redux';
 import {InputField} from '../../components/Inputfields';
+import SocialMethods from './containers/socialmethods';
 interface IProps {
   navigation: any;
   email: string;
@@ -111,13 +112,14 @@ const Login = (props: any) => {
             buttonStyles={styles.buttonStyle}
           />
         </View>
+
         <View style={styles.forgotPwdContainer}>
           <TouchableOpacity
             style={styles.marginTo20Style}
             onPress={() => props.navigation.navigate('ForgotPassword')}>
             <Text>{'Forgot Password?'}</Text>
           </TouchableOpacity>
-
+          <SocialMethods />
           <TouchableOpacity
             style={styles.marginTo20Style}
             onPress={() => props.navigation.navigate('Signup')}>

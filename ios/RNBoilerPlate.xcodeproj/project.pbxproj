@@ -17,6 +17,8 @@
 		4F647EACF4B355062F86D728 /* libPods-RNBoilerPlate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5E24768DB6E2737ED13B6B /* libPods-RNBoilerPlate.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8BE3F5C86AFF49E58824DCB7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EF471A4CEA7408482025399 /* Poppins-Regular.ttf */; };
+		DB8A4A0526A94E0D002D1FE6 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8A4A0426A94E0D002D1FE6 /* File.swift */; };
+		DB8A4A9626A99CA7002D1FE6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB8A4A9526A99CA7002D1FE6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,10 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RNBoilerPlate/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B309DC02F5007BBEAD927155 /* Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate-RNBoilerPlateTests/Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig"; sourceTree = "<group>"; };
 		DAD2BF65BFA716BEBB1883A9 /* Pods-RNBoilerPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate.debug.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate/Pods-RNBoilerPlate.debug.xcconfig"; sourceTree = "<group>"; };
+		DB8A49B226A933D8002D1FE6 /* RNBoilerPlate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RNBoilerPlate.entitlements; path = RNBoilerPlate/RNBoilerPlate.entitlements; sourceTree = "<group>"; };
+		DB8A4A0326A94E0D002D1FE6 /* RNBoilerPlate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNBoilerPlate-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB8A4A0426A94E0D002D1FE6 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DB8A4A9526A99CA7002D1FE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RNBoilerPlate/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBB0FABD26A18A4E0009CE47 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F08962DD54F5CCB8F32FADD3 /* Pods-RNBoilerPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate.release.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate/Pods-RNBoilerPlate.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,13 +99,17 @@
 		13B07FAE1A68108700A75B9A /* RNBoilerPlate */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A49B226A933D8002D1FE6 /* RNBoilerPlate.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				DB8A4A9526A99CA7002D1FE6 /* GoogleService-Info.plist */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				DBB0FABD26A18A4E0009CE47 /* Config.xcconfig */,
+				DB8A4A0426A94E0D002D1FE6 /* File.swift */,
+				DB8A4A0326A94E0D002D1FE6 /* RNBoilerPlate-Bridging-Header.h */,
 			);
 			name = RNBoilerPlate;
 			sourceTree = "<group>";
@@ -226,7 +236,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
@@ -266,6 +276,7 @@
 				15FBBF78193748788C32CB5D /* Poppins-Medium.ttf in Resources */,
 				8BE3F5C86AFF49E58824DCB7 /* Poppins-Regular.ttf in Resources */,
 				4E139950C83E44698BC424B3 /* Poppins-SemiBold.ttf in Resources */,
+				DB8A4A9626A99CA7002D1FE6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				DB8A4A0526A94E0D002D1FE6 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 554EA81306D60D8DC46B84A9 /* Pods-RNBoilerPlate-RNBoilerPlateTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -479,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B309DC02F5007BBEAD927155 /* Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = RNBoilerPlateTests/Info.plist;
@@ -505,9 +519,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RNBoilerPlate/RNBoilerPlate.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R67Q8JL33;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -525,9 +541,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bacancy.MyApp;
 				PRODUCT_NAME = RNBoilerPlate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_MyApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNBoilerPlate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -541,9 +558,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RNBoilerPlate/RNBoilerPlate.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R67Q8JL33;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -559,9 +578,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bacancy.MyApp;
 				PRODUCT_NAME = RNBoilerPlate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_MyApp;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNBoilerPlate-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
