@@ -20,7 +20,7 @@ function SocialMethods(props) {
         requestedOperation: appleAuth.Operation.LOGIN,
         requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
       });
-      console.log('appleAuthRequestResponse::::', appleAuthRequestResponse);
+
       setIsLogin(true);
       setLoginMethod('apple');
       navigation.reset({
@@ -45,9 +45,7 @@ function SocialMethods(props) {
       //     doAppleCheckUserExit(appleAuthRequestResponse);
       // }
     } catch (e) {
-      console.log('error:::', e.code);
       if (e.code === appleAuth.Error.CANCELED) {
-        console.log('CANCELED error:::', e.code);
       }
     }
   };
@@ -61,15 +59,13 @@ function SocialMethods(props) {
       } else {
         AccessToken.getCurrentAccessToken().then(data => {
           const token = data.accessToken.toString();
-          console.log('Facebooke token:::', token);
+
           initUser(token);
 
           //dispatch(signInWithFacebook(token));
         });
       }
-    } catch (e) {
-      console.log('Login fail with error: ' + e);
-    }
+    } catch (e) {}
   };
   const initUser = token => {
     fetch(
@@ -79,7 +75,7 @@ function SocialMethods(props) {
       .then(response => response.json())
       .then(json => {
         // Some user object has been set up somewhere, build that user here
-        console.log('Facebook Response json::::', json);
+
         setIsLogin(true);
         setLoginMethod('facebook');
         navigation.reset({
@@ -104,7 +100,6 @@ function SocialMethods(props) {
       const userInfo = await GoogleSignin.signIn();
       const {idToken, user} = userInfo;
       const {email, name} = user;
-      console.log('GOOGLE userInfo:::', userInfo);
       setIsLogin(true);
       setLoginMethod('google');
       navigation.reset({
@@ -112,7 +107,7 @@ function SocialMethods(props) {
       });
       //dispatch(signInWithGoogle(idToken));
     } catch (error) {
-      console.log(error);
+
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
       } else if (error.code === statusCodes.IN_PROGRESS) {

@@ -28,7 +28,7 @@ export const DrawerMenu: React.FC<IProps> = props => {
   ]);
   const onLogout = async () => {
     const method = await getLoginMethod();
-    console.log('onLogout:::::', method);
+
     await isLogout();
 
     // Sign Out Google

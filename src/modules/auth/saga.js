@@ -30,7 +30,7 @@ export function* signInWithEmailSaga({payload}) {
  */
 function* getPostsSaga() {
   const response = yield call(getPosts);
-  console.log('getPostsSaga response:::', response);
+
   if (response.status == 200) {
     yield put({type: Actions.GET_POSTS_SUCCESS, response});
   } else {

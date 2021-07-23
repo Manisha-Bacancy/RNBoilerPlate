@@ -5,9 +5,6 @@ import {
   FlatList,
   ActivityIndicator,
   StyleSheet,
-  Platform,
-  Text,
-  TouchableOpacity,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import PostsRenderItem from './components/PostsRenderItem';
@@ -17,18 +14,6 @@ import Loader from '../../components/loaders/loader';
 import {Colors, smartScale} from '../../theme';
 import {getPosts, resetError} from '../../modules/auth/actions';
 import {Alert} from 'react-native';
-import RNIap, {
-  InAppPurchase,
-  PurchaseError,
-  SubscriptionPurchase,
-  acknowledgePurchaseAndroid,
-  consumePurchaseAndroid,
-  finishTransaction,
-  finishTransactionIOS,
-  purchaseErrorListener,
-  purchaseUpdatedListener,
-  initConnection,
-} from 'react-native-iap';
 
 interface IProps {
   navigation: any;
@@ -47,21 +32,9 @@ export const Home: React.FC<IProps> = props => {
     error: state.auth.error,
     loading: state.auth.loading,
   }));
-  const itemSkus = Platform.select({
-    ios: [
-      'com.bacancy.MyApp.iapDemo',
-      'com.bacancy.MyApp.002', // dooboolab
-    ],
-    android: [
-      'com.bacancy.MyApp.iapDemo',
-      'com.bacancy.MyApp.002', // do
-    ],
-  });
+
   const [isError, setIsError] = useState(error);
-  const [fullData, setFullData] = useState([
-    'com.bacancy.MyApp.iapDemo',
-    'com.bacancy.MyApp.002', // dooboolab
-  ]);
+  const [fullData, setFullData] = useState([]);
   const [search, setSearch] = useState('');
   const searchRef = useRef(null);
   const dispatch = useDispatch();
@@ -70,36 +43,26 @@ export const Home: React.FC<IProps> = props => {
   //use effect is a replacement of componentDidMount,componentDidUpadte and componentWillUnMount method of class
 
   useEffect(() => {
-    //dispatch(getPosts());
-    intitConnectionIAP();
+    dispatch(getPosts());
   }, []);
 
-  const intitConnectionIAP = async () => {
-    try {
-      await RNIap.initConnection();
-      // await RNIap.flushFailedPurchasesCachedAsPendingAndroid();
-    } catch (err) {
-      console.log(err.code, err.message);
+  useEffect(() => {
+    if (error != null) {
+      Alert.alert('Error', error, [
+        {
+          text: 'Cancel',
+          //onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {
+          text: 'OK',
+          onPress: () => {
+            dispatch(resetError());
+          },
+        },
+      ]);
     }
-  };
-  // useEffect(() => {
-  //   console.log('error::::::', error);
-  //   if (error != null) {
-  //     Alert.alert('Error', error, [
-  //       {
-  //         text: 'Cancel',
-  //         onPress: () => console.log('Cancel Pressed'),
-  //         style: 'cancel',
-  //       },
-  //       {
-  //         text: 'OK',
-  //         onPress: () => {
-  //           dispatch(resetError());
-  //         },
-  //       },
-  //     ]);
-  //   }
-  // }, [error]);
+  }, [error]);
 
   //Search view--Done't remove code
   // const onSearchTextChange = (value: string) => {
@@ -119,19 +82,6 @@ export const Home: React.FC<IProps> = props => {
   //     setSearch(value);
   //   }
   // };
-
-  const getItems = async () => {
-    try {
-      const products = await RNIap.getProducts(fullData);
-      //const products = await RNIap.getAvailablePurchases();
-      //const products = await RNIap.getSubscriptions(itemSkus);
-
-      console.log('Products', products);
-    } catch (err) {
-      console.log('err........', err.code, err.message);
-      console.warn(err.code, err.message);
-    }
-  };
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
@@ -163,7 +113,7 @@ export const Home: React.FC<IProps> = props => {
             iconStyles={styles.iconStyle}
             errorMessage={''}
           /> */}
-          {/* <FlatList
+          <FlatList
             data={posts}
             renderItem={({item, index}) => (
               <PostsRenderItem item={item} index={index} />
@@ -172,11 +122,7 @@ export const Home: React.FC<IProps> = props => {
             extraData={posts}
             keyExtractor={(item, index) => index.toString()}
             showsVerticalScrollIndicator={false}
-          /> */}
-
-          <TouchableOpacity onPress={() => getItems()}>
-            <Text>{'Get IAP Product'}</Text>
-          </TouchableOpacity>
+          />
         </View>
       </View>
       <Loader loading={loading} />
