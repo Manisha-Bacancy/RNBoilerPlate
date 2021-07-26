@@ -7,3 +7,4 @@ export * from './profile/setting';
 export * from './auth/loading';
 export * from './app';
 export * from './profile/notification';
+export * from './iap/iap';

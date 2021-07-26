@@ -22,14 +22,12 @@ export const authReducer = (state: any = initState, action: any) => {
       };
 
     case Actions.LOGIN_SUCCESS:
-      console.log('LOGIN SUCCESS::', action.response.data.data);
       return {
         ...state,
         user: action.response.data.data,
         loading: false,
       };
     case Actions.LOGIN_FAILURE:
-      console.log('LOGIN FAIL::', action.response.data);
       return {
         ...state,
         error:
@@ -52,7 +50,6 @@ export const authReducer = (state: any = initState, action: any) => {
         loading: false,
       };
     case Actions.GET_POSTS_FAILURE:
-      console.log('POST ERROR::', action.response);
       return {
         ...state,
         error:
@@ -60,7 +57,6 @@ export const authReducer = (state: any = initState, action: any) => {
         loading: false,
       };
     case Actions.RESET_ERROR:
-      console.log('RESET_ERROR::', action.response);
       return {
         ...state,
         error: null,

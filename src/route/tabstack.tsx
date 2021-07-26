@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import I18n from '../I18n/I18n';
 import {BottomTabBar} from '../components';
-import {Home, Profile} from '../screens';
+import {Home, IAPurchase, Profile} from '../screens';
 
 // tab stack
 const Tab = createBottomTabNavigator();

@@ -11,9 +11,11 @@ import {horizontalAnimation} from '../utils/horizontalAnimation';
 import {DrawerStack} from './drawerstack';
 import {TabStack} from './tabstack';
 import Login from '../screens/auth/login';
+import I18n from '../I18n/I18n';
 import {
   AuthLoading,
   ForgotPassword,
+  IAPurchase,
   Notification,
   Setting,
   Signup,
@@ -48,6 +50,7 @@ const SignedInStack = props => {
       <Stack.Screen name="DrawerStack" component={DrawerStack} />
       <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen name="Notification" component={Notification} />
+      <Stack.Screen name={I18n.t('iap.title')} component={IAPurchase} />
     </LoggedInStack.Navigator>
   );
 };

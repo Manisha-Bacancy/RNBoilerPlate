@@ -18,9 +18,15 @@ export const DrawerMenu: React.FC<IProps> = props => {
       route: 'Setting',
     },
     {
+      title: I18n.t('iap.title'),
+      type: 'screen',
+      id: 2,
+      route: 'In app purchase',
+    },
+    {
       title: I18n.t('signOut'),
       type: 'Sign out',
-      id: 2,
+      id: 3,
       route: 'SignedOut',
     },
   ]);

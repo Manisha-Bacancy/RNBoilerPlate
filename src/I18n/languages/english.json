@@ -40,5 +40,8 @@
   },
   "profile": {
     "title": "Profile"
+  },
+  "iap":{
+    "title":"In app purchase"
   }
 }

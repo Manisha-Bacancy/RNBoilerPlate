@@ -17,6 +17,7 @@
 		4F647EACF4B355062F86D728 /* libPods-RNBoilerPlate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A5E24768DB6E2737ED13B6B /* libPods-RNBoilerPlate.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8BE3F5C86AFF49E58824DCB7 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1EF471A4CEA7408482025399 /* Poppins-Regular.ttf */; };
+		DBD1F79F26AAF74F003515A8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD1F79E26AAF74F003515A8 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B309DC02F5007BBEAD927155 /* Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate-RNBoilerPlateTests/Pods-RNBoilerPlate-RNBoilerPlateTests.release.xcconfig"; sourceTree = "<group>"; };
 		DAD2BF65BFA716BEBB1883A9 /* Pods-RNBoilerPlate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate.debug.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate/Pods-RNBoilerPlate.debug.xcconfig"; sourceTree = "<group>"; };
 		DBB0FABD26A18A4E0009CE47 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		DBD1F79E26AAF74F003515A8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F08962DD54F5CCB8F32FADD3 /* Pods-RNBoilerPlate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNBoilerPlate.release.xcconfig"; path = "Target Support Files/Pods-RNBoilerPlate/Pods-RNBoilerPlate.release.xcconfig"; sourceTree = "<group>"; };
 		FBBECCFAB0D649088032D3F9 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F647EACF4B355062F86D728 /* libPods-RNBoilerPlate.a in Frameworks */,
+				DBD1F79F26AAF74F003515A8 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +121,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBD1F79E26AAF74F003515A8 /* StoreKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				1A5E24768DB6E2737ED13B6B /* libPods-RNBoilerPlate.a */,
 				48D90066DC1A54594B7DA883 /* libPods-RNBoilerPlate-RNBoilerPlateTests.a */,
@@ -507,7 +511,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R67Q8JL33;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -525,9 +529,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bacancy.MyApp;
 				PRODUCT_NAME = RNBoilerPlate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_MyApp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -543,7 +547,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4R67Q8JL33;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -559,9 +563,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bacancy.MyApp;
 				PRODUCT_NAME = RNBoilerPlate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_MyApp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
