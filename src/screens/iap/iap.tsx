@@ -33,15 +33,23 @@ interface IProps {
 export const IAPurchase: React.FC<IProps> = props => {
   const goBack = () => NavigationService.goBack();
   const arryProductList = [
-    {title: 'IAP Product_2', description: 'Test IAP Product_2', price: '179'},
+    {
+      title: 'IAP Product_2',
+      description: 'Test IAP Product_2',
+      price: '179',
+      productId: 'com.bacancy.MyApp.002',
+    },
     {
       title: 'DEMO IAP',
       description: 'it is a non consumable iap demo',
       price: '89',
+      productId: 'com.bacancy.MyApp.iapDemo',
     },
   ];
   const [loading, setLoading] = useState(false);
-  const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useState(
+    Platform.OS == 'ios' ? arryProductList : [],
+  );
   const itemSkus = Platform.select({
     ios: [
       'com.bacancy.MyApp.iapDemo',
@@ -101,6 +109,8 @@ export const IAPurchase: React.FC<IProps> = props => {
         const subProducts = await RNIap.getSubscriptions(itemSubs);
         setProductList(subProducts);
         console.log('subProducts::::', subProducts);
+        const purchases = await RNIap.getAvailablePurchases();
+        console.log('Available purchases :: ', purchases);
       } catch (err) {
         console.log('err........', JSON.stringify(err));
         // console.warn(err.code, err.message);
@@ -168,7 +178,9 @@ export const IAPurchase: React.FC<IProps> = props => {
               <IAPRenderItem
                 item={item}
                 index={index}
-                requestSubscription={requestSubscription}
+                requestSubscription={ptoductId =>
+                  requestSubscription(ptoductId)
+                }
               />
             )}
             extraData={productList}
