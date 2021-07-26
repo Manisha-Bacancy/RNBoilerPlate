@@ -1,4 +1,4 @@
-package com.rnboilerplate;
+package com.brainhappy.demo;
 
 import android.app.Application;
 import android.content.Context;

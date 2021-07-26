@@ -1,4 +1,4 @@
-package com.rnboilerplate;
+package com.brainhappy.demo;
 
 import com.facebook.react.ReactActivity;
 

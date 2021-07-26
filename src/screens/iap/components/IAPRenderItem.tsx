@@ -5,17 +5,19 @@ import {Colors, Fonts, FontSize, smartScale} from '../../../theme';
 interface Props {
   item: ItemState;
   index: number;
+  requestSubscription: Function;
 }
 
 interface ItemState {
   title: string;
   description: string;
   price: string;
+  productId: string;
 }
 
 const IAPRenderItem: React.FC<Props> = props => {
-  const {item, index} = props;
-  const {title, description, price} = item;
+  const {item, index, requestSubscription} = props;
+  const {title, description, price, productId} = item;
   return (
     <View
       key={index}
@@ -29,7 +31,7 @@ const IAPRenderItem: React.FC<Props> = props => {
           <Text style={styles.txtTitle}>{price}</Text>
         </View>
         <TouchableOpacity
-          onPress={() => alert(price)}
+          onPress={() => requestSubscription(productId)}
           style={{backgroundColor: Colors.green}}>
           <Text
             style={{

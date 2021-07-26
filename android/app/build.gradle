@@ -131,11 +131,12 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.rnboilerplate"
+        applicationId "com.brainhappy.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        missingDimensionStrategy 'store', 'play'
     }
     splits {
         abi {
@@ -145,6 +146,7 @@ android {
             include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
     }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')

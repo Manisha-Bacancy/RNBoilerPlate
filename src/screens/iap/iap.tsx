@@ -32,15 +32,16 @@ interface IProps {
 
 export const IAPurchase: React.FC<IProps> = props => {
   const goBack = () => NavigationService.goBack();
-  const [loading, setLoading] = useState(false);
-  const [productList, setProductList] = useState([
+  const arryProductList = [
     {title: 'IAP Product_2', description: 'Test IAP Product_2', price: '179'},
     {
       title: 'DEMO IAP',
       description: 'it is a non consumable iap demo',
       price: '89',
     },
-  ]);
+  ];
+  const [loading, setLoading] = useState(false);
+  const [productList, setProductList] = useState([]);
   const itemSkus = Platform.select({
     ios: [
       'com.bacancy.MyApp.iapDemo',
@@ -52,6 +53,23 @@ export const IAPurchase: React.FC<IProps> = props => {
       'android.test.refunded',
       'android.test.item_unavailable',
       // 'point_1000', '5000_point', // dooboolab
+    ],
+  });
+
+  const itemSubs = Platform.select({
+    ios: [
+      'com.cooni.point1000',
+      'com.cooni.point5000', // dooboolab
+    ],
+    android: [
+      'test_1_three_month',
+      'test_1_six_month',
+      '6_month_nonrenewable_subscription',
+      '6_month_nonrenewable_subscription_test',
+      '1_month_nonrenewable_subscription',
+      '1_year_nonrenewable_subscription',
+      'test_1_monthy',
+      '3_month_nonrenewable_subscription', // subscription
     ],
   });
 
@@ -78,8 +96,11 @@ export const IAPurchase: React.FC<IProps> = props => {
       await RNIap.flushFailedPurchasesCachedAsPendingAndroid();
       try {
         const products = await RNIap.getProducts(itemSkus);
-
         console.log('Products', products);
+
+        const subProducts = await RNIap.getSubscriptions(itemSubs);
+        setProductList(subProducts);
+        console.log('subProducts::::', subProducts);
       } catch (err) {
         console.log('err........', JSON.stringify(err));
         // console.warn(err.code, err.message);
@@ -114,7 +135,21 @@ export const IAPurchase: React.FC<IProps> = props => {
       },
     );
   };
-
+  const requestSubscription = async sku => {
+    //alert(sku);
+    try {
+      RNIap.requestSubscription(sku);
+    } catch (err) {
+      Alert.alert(err.message);
+    }
+  };
+  const requestPurchase = async sku => {
+    try {
+      RNIap.requestPurchase(sku);
+    } catch (err) {
+      console.warn(err.code, err.message);
+    }
+  };
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
@@ -130,7 +165,11 @@ export const IAPurchase: React.FC<IProps> = props => {
           <FlatList
             data={productList}
             renderItem={({item, index}) => (
-              <IAPRenderItem item={item} index={index} />
+              <IAPRenderItem
+                item={item}
+                index={index}
+                requestSubscription={requestSubscription}
+              />
             )}
             extraData={productList}
             keyExtractor={(item, index) => index.toString()}
