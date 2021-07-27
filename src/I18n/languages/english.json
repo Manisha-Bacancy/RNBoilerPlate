@@ -40,5 +40,8 @@
   },
   "profile": {
     "title": "Profile"
+  },
+  "chat":{
+    "title":"Chat"
   }
 }

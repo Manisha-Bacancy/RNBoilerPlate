@@ -17,6 +17,7 @@ import {
   Notification,
   Setting,
   Signup,
+  Chat,
 } from '../screens';
 
 const TransitionScreenOptions = {
@@ -48,6 +49,7 @@ const SignedInStack = props => {
       <Stack.Screen name="DrawerStack" component={DrawerStack} />
       <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen name="Notification" component={Notification} />
+      <Stack.Screen name="Chat" component={Chat} />
     </LoggedInStack.Navigator>
   );
 };

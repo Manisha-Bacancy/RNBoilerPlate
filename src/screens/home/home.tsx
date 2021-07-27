@@ -47,7 +47,6 @@ export const Home: React.FC<IProps> = props => {
   }, []);
 
   useEffect(() => {
-    console.log('error::::::', error);
     if (error != null) {
       Alert.alert('Error', error, [
         {

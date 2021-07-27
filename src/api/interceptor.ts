@@ -22,10 +22,8 @@ const configInterceptors = (axios: AxiosInstance) => {
     error => {
       // Do something with response error
       if (!error.response) {
-        console.log('Error if....');
         return Promise.reject(error);
       } else {
-        console.log('Error else......', error.response);
         const data = {message: 'No Record found'};
         const errorMessage = (error.response.data = data);
 
