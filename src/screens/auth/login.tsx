@@ -9,7 +9,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import {MyStatusBar} from '../../components';
-import {setIsLogin} from '../../services';
+import {setIsLogin, setUserData} from '../../services';
 import {Colors, Images, smartScale} from '../../theme';
 import {signInWithEmail} from '../../modules/auth/actions';
 
@@ -26,6 +26,8 @@ import {EMAIL_REGEX, isStringIncludeEmoji} from '../../utils/constants';
 import {Button} from '../../components';
 import {connect} from 'react-redux';
 import {InputField} from '../../components/Inputfields';
+import {setUpChat} from '../chat/chatservice';
+import Loader from '../../components/loaders/loader';
 interface IProps {
   navigation: any;
   email: string;
@@ -40,6 +42,12 @@ interface IProps {
 type Props = IProps & InjectedFormProps<any, {}, string>;
 
 const Login = (props: any) => {
+  const {error, user, loading} = useSelector((state: any) => ({
+    user: state.auth.user,
+    error: state.auth.error,
+    loading: state.auth.loading,
+  }));
+  const [userInfo, setUserInfo] = useState(user);
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
@@ -47,17 +55,38 @@ const Login = (props: any) => {
 
   const {handleSubmit} = props;
   const goHome = () => {
-    setIsLogin(true);
-    props.navigation.reset({
-      routes: [{name: 'SignedInStack'}],
-    });
+    const params = {
+      email: 'a1@yopmail.com',
+      password: 'A1@12345',
+      deviceToken: {
+        deviceTokenString: 'deviceToken',
+        os: Platform.OS == 'android' ? 'android' : 'ios',
+      },
+    };
+
+    dispatch(signInWithEmail(params));
+    // setIsLogin(true);
+    // setUpChat();
+    // props.navigation.reset({
+    //   routes: [{name: 'SignedInStack'}],
+    // });
   };
 
   useEffect(() => {
-    props.change('email', 'test@yopmail.com');
-    props.change('password', 'Test@123');
+    props.change('email', 'a1@yopmail.com');
+    props.change('password', 'A1@12345');
   }, []);
-
+  useEffect(() => {
+    if (user !== userInfo) {
+      const {fullName, _id} = user.user;
+      setUserData(user);
+      setIsLogin(true);
+      setUpChat(_id, fullName);
+      props.navigation.reset({
+        routes: [{name: 'SignedInStack'}],
+      });
+    }
+  }, [user]);
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
@@ -125,6 +154,7 @@ const Login = (props: any) => {
           </TouchableOpacity>
         </View>
       </View>
+      <Loader loading={loading} />
     </SafeAreaView>
   );
 };

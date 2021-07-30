@@ -1,5 +1,11 @@
 import React, {Fragment, useState} from 'react';
-import {View, Text, TouchableOpacity, SafeAreaView,StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  StyleSheet,
+} from 'react-native';
 import NavigationService from '../../route/navigationservice';
 import {Headers, MyStatusBar, CustomSwitch} from '../../components';
 import I18n from '../../I18n';
@@ -13,9 +19,7 @@ export const Setting: React.FC<IProps> = props => {
   const goBack = () => NavigationService.goBack();
   const [loading, setLoading] = useState(false);
   const [switchTwoValue, setSwitchTwoValue] = useState(false);
-  const CustomComponent = () => {
-    return <View style={{backgroundColor: 'green'}} />;
-  };
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
@@ -26,7 +30,6 @@ export const Setting: React.FC<IProps> = props => {
           leftIcon={'chevron-back-outline'}
           leftAction={goBack}
         />
-
         <View
           style={{
             flex: 1,
@@ -117,4 +120,3 @@ const styles = StyleSheet.create({
     fontSize: smartScale(15),
   },
 });
-

@@ -8,3 +8,5 @@ export * from './auth/loading';
 export * from './app';
 export * from './profile/notification';
 export * from './chat/chat';
+export * from './chat/groupChannelInvite';
+export * from './chat/groupchannel';

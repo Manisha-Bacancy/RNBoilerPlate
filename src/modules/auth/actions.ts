@@ -1,5 +1,5 @@
 import * as Actions from './constants';
-type Action = {type: string, payload: Object};
+type Action = {type: string; payload: Object};
 
 /**
  * Action login
@@ -14,21 +14,31 @@ export function signInWithEmail(loginParams): Action {
   };
 }
 
-
 /**
  * Get post rest api
  * @returns {{type: string, payload: *}}
  */
- export function getPosts() :Action{
+export function getPosts(): Action {
   return {
     type: Actions.GET_POSTS_REQUEST,
     payload: true,
   };
 }
 
-export function resetError() :Action{
+export function resetError(): Action {
   return {
     type: Actions.RESET_ERROR,
     payload: true,
+  };
+}
+
+/**
+ * Get friends rest api
+ * @returns {{type: string, payload: *}}
+ */
+export function getFriends(params): Action {
+  return {
+    type: Actions.GET_FRIENDS_REQUEST,
+    payload: params,
   };
 }

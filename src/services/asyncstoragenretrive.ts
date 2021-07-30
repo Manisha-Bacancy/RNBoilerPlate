@@ -27,3 +27,29 @@ export const setIsLogin = async data => {
     } catch (error) {}
   }
 };
+
+/**
+ * To save the user info to async storage
+ */
+export const setUserData = async data => {
+  if (data != null) {
+    try {
+      await AsyncStorage.setItem('USER_INFO', JSON.stringify(data));
+    } catch (error) {}
+  }
+};
+
+/**
+ * Retrive the user info from async storage
+ */
+
+export const getUserData = async () => {
+  try {
+    const data = await AsyncStorage.getItem('USER_INFO');
+    if (data !== null) {
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    return '';
+  }
+};

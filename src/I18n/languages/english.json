@@ -42,6 +42,10 @@
     "title": "Profile"
   },
   "chat":{
-    "title":"Chat"
+    "title":"Chat",
+    "addRecipient": "Add Recipient",
+    "writeAMsg": "Write a message...",
+    "Photos": "Photos",
+    "Send": "Send"
   }
 }

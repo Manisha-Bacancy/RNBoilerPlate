@@ -43,7 +43,7 @@ export const Home: React.FC<IProps> = props => {
   //use effect is a replacement of componentDidMount,componentDidUpadte and componentWillUnMount method of class
 
   useEffect(() => {
-    dispatch(getPosts());
+    //dispatch(getPosts());
   }, []);
 
   useEffect(() => {

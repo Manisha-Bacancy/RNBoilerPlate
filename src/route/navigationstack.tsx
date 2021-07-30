@@ -18,6 +18,8 @@ import {
   Setting,
   Signup,
   Chat,
+  GroupChannelInvite,
+  GroupChannel,
 } from '../screens';
 
 const TransitionScreenOptions = {
@@ -50,6 +52,8 @@ const SignedInStack = props => {
       <Stack.Screen name="Setting" component={Setting} />
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen name="GroupChannelInvite" component={GroupChannelInvite} />
+      <Stack.Screen name="GroupChannel" component={GroupChannel} />
     </LoggedInStack.Navigator>
   );
 };

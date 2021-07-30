@@ -6,8 +6,10 @@
 
 import {Alert} from 'react-native';
 import {all, call, put, takeLatest, fork, takeEvery} from 'redux-saga/effects';
+import {getUserData} from '../../services';
+
 import * as Actions from './constants';
-import {getPosts, loginWithEmail} from './service';
+import {getPosts, loginWithEmail, getFriends} from './service';
 
 /**
  * Sign In saga
@@ -17,6 +19,7 @@ import {getPosts, loginWithEmail} from './service';
  */
 export function* signInWithEmailSaga({payload}) {
   const response = yield call(loginWithEmail, payload);
+
   if (response.status == 200) {
     yield put({type: Actions.LOGIN_SUCCESS, response});
   } else {
@@ -39,9 +42,25 @@ function* getPostsSaga() {
   }
 }
 
+/**
+ * Get list friends sage REST API
+ * @returns {IterableIterator<*>}
+ */
+function* getFriendsSaga(action) {
+  const {token} = yield getUserData();
+  const response = yield call(getFriends, action.payload, token);
+
+  if (response.status == 200) {
+    yield put({type: Actions.GET_FRIENDS_SUCCESS, response});
+  } else {
+    yield put({type: Actions.GET_FRIENDS_FAILURE, response});
+  }
+}
+
 export default function* authSaga() {
   yield takeEvery(Actions.LOGIN_REQUEST, signInWithEmailSaga);
   yield takeEvery(Actions.GET_POSTS_REQUEST, getPostsSaga);
+  yield takeEvery(Actions.GET_FRIENDS_REQUEST, getFriendsSaga);
 }
 
 //      try {

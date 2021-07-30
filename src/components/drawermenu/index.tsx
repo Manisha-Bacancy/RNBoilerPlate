@@ -21,7 +21,7 @@ export const DrawerMenu: React.FC<IProps> = props => {
       title: I18n.t('chat.title'),
       type: 'screen',
       id: 1,
-      route: 'Chat',
+      route: 'GroupChannel',
     },
     {
       title: I18n.t('signOut'),

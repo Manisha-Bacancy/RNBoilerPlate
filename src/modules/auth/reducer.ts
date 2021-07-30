@@ -10,6 +10,8 @@ const initState = {
   loading: false,
   user: null,
   error: null,
+  posts: [],
+  friendList: [],
 };
 
 export const authReducer = (state: any = initState, action: any) => {
@@ -18,18 +20,22 @@ export const authReducer = (state: any = initState, action: any) => {
     case Actions.LOGIN_REQUEST:
       return {
         ...state,
+        error: null,
         loading: true,
+        user: null,
       };
 
     case Actions.LOGIN_SUCCESS:
       return {
         ...state,
+        error: null,
         user: action.response.data.data,
         loading: false,
       };
     case Actions.LOGIN_FAILURE:
       return {
         ...state,
+        user: null,
         error:
           action.response.data != undefined ? action.response.data.message : '',
         loading: false,
@@ -56,6 +62,31 @@ export const authReducer = (state: any = initState, action: any) => {
           action.response.message != undefined ? action.response.message : '',
         loading: false,
       };
+
+    case Actions.GET_FRIENDS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        friendList: [],
+      };
+
+    case Actions.GET_FRIENDS_SUCCESS:
+      return {
+        ...state,
+        friendList: action.response.data.data.friendList,
+        error: null,
+        loading: false,
+      };
+    case Actions.GET_FRIENDS_FAILURE:
+      return {
+        ...state,
+        friendList: [],
+        error:
+          action.response.message != undefined ? action.response.message : '',
+        loading: false,
+      };
+
     case Actions.RESET_ERROR:
       return {
         ...state,

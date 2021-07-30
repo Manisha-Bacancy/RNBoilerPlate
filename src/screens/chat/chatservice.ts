@@ -1,5 +1,13 @@
 import SendBird from 'sendbird';
 import {Platform} from 'react-native';
+import {CHAT_APP_ID} from '../../utils/constants';
+
+export const setUpChat = (userID: string, nickname: string) => {
+  let chatAPPID = CHAT_APP_ID;
+  sbConnect(userID, nickname, chatAPPID)
+    .then(userInfo => {})
+    .catch(err => {});
+};
 
 export const sbConnect = (userId: string, nickname: string, APP_ID: string) => {
   return new Promise((resolve, reject) => {
@@ -54,7 +62,6 @@ export const sbCreateOpenChannel = channelName => {
         reject('Create OpenChannel Failed.');
       } else {
         resolve(channel);
-        console.log('createChannel::', channel.url);
         resolve(createChatHandler(channel.url, channel));
       }
     });
@@ -68,9 +75,7 @@ export const sbGetOpenChannel = channelUrl => {
       if (error) {
         reject(error);
       } else {
-        console.log('sbGetOpenChannel:response:', channel);
         resolve(channel);
-        //resolve(sbOpenChannelEnter(channel));
       }
     });
   });
@@ -94,7 +99,6 @@ export const sbOpenChannelEnter = channel => {
       if (error) {
         reject(error);
       } else {
-        console.log('sbOpenChannelEnter response:::', response);
         resolve(channel);
       }
     });
@@ -110,8 +114,6 @@ export const onSendButtonPress = (channelUrl, isOpenChannel, textMessage) => {
 const sendTextMessage = (channel, textMessage) => {
   return new Promise((resolve, reject) => {
     channel.sendUserMessage(textMessage, function (message, error) {
-      console.log('sbOpenChannelEnter:message:', message);
-      console.log('sbOpenChannelEnter:error:', error);
       if (error) {
         reject(error);
       } else {
@@ -139,9 +141,6 @@ const sendFileMessage = (channel, file) => {
       customType,
       thumbSizeList,
       (message, error) => {
-        console.log('sendFileMessage:message:', message);
-        console.log('sendFileMessage:error:', error);
-
         if (error) {
           reject(error);
         } else {

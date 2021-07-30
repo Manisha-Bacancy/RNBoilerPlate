@@ -3,6 +3,7 @@ import axios from '../../api/axios';
 export const endpoints = {
   login: 'user/login',
   posts: 'posts',
+  fnd: 'friend',
 };
 
 /**
@@ -14,3 +15,5 @@ export const endpoints = {
 export const loginWithEmail = (data: any) => axios.post(endpoints.login, data);
 
 export const getPosts = () => axios.get(endpoints.posts);
+export const getFriends = (URl: string, token: string) =>
+  axios.get(URl, {headers: {Authorization: token}});
